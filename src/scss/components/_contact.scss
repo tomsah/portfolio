@@ -1,0 +1,14 @@
+.tomsah-contact {
+  &__text {
+    //font-size: calc(13px + (17 - 13) * (100vw - 320px) / (767 - 320));
+    font-size: calc(13px + (17 - 13) * (100vw - 320px) / (1200 - 320));
+
+    a{
+      color: white;
+      margin-top: 30px;
+      display: inline-block;
+      text-decoration: underline;
+      font-size: calc(15px + (22 - 15) * (100vw - 320px) / (1200 - 320));
+    }
+  }
+}

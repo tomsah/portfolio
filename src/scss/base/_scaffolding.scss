@@ -1,0 +1,70 @@
+body {
+  background: black;
+  color: white;
+  font-family: $font-family;
+  font-size: 17px;
+  overflow-x: hidden;
+
+
+  &.no-scroll,
+  &.is-menu-preview {
+    overflow-y: hidden;
+
+    // .tomsah-project {
+    //   z-index: 1!important;
+    // }
+  }
+
+}
+
+main {
+  max-width: 1440px;
+  margin: 30px;
+  // padding-bottom: 110px;
+  position: relative;
+}
+
+.tomsah-border-bottom {
+  height: 30px;
+  position: fixed;
+  background: black;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.tomsah-border-right {
+  position: fixed;
+  width: 30px;
+  background: black;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.tomsah-background-text {
+  font-size: calc(520px + (600 - 520) * (100vw - 320px) / (1500 - 320));
+  font-family: "osp-din";
+  color: #282828;
+  line-height: 0.81;
+  word-break: break-word;
+  position: absolute;
+  top: -14px;
+  left: -25px;
+  z-index: -1;
+  opacity: 0.5;
+  width: 600%;
+  overflow-x: hidden;
+  max-height: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+@media (min-width: $screen-sm-min) {
+ .tomsah-background-text {
+   left: 16px;
+   width: 180%;
+ }
+}

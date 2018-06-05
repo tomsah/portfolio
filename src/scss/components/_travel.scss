@@ -1,0 +1,82 @@
+.tomsah-travel {
+  padding-top: 35px;
+  width: 100%;
+
+  hr {
+    width: 90%;
+    margin-left: 0;
+    margin-top: 40px;
+    border-color: #808080;
+  }
+
+  p {
+    font-size: calc(15px + (20 - 15) * (100vw - 320px) / (1500 - 320));
+  }
+
+
+  &__info {
+    margin: 0 0 50px 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      width: 50%;
+      padding: 5px 0;
+      font-size: calc(13px + (17 - 13) * (100vw - 320px) / (1500 - 320));
+      text-transform: capitalize;
+    }
+  }
+
+  .tomsah-globe {
+    height: auto;
+    margin: 25px 0;
+    img {
+      height: auto;
+    }
+  }
+
+
+  .tomsah-button {
+    position: relative;
+    overflow: hidden;
+
+    .mask {
+      content: "";
+      background: black;
+      position: relative;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+
+    span {
+      border-bottom: 1px solid;
+    }
+
+    &:hover {
+      span {
+        border-bottom: 0px solid;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .tomsah-travel {
+    width: 65%;
+    margin-left: 25%;
+    //padding-top: 230px;
+    padding-top: 100px;
+    //padding-bottom: 150px;
+
+    .tomsah-button {
+      .mask {
+        position: absolute;
+      }
+
+    }
+  }
+}

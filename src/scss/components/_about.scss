@@ -1,0 +1,26 @@
+.tomsah-about {
+  p {
+    padding-top: 30px;
+    font-size: calc(17.5px + (20 - 17.5) * (100vw - 320px) / (767 - 320));
+    line-height: 1.45;
+    color: #b3b3b3;
+  }
+
+  hr {
+    width: 95%;
+    left: -15px;
+    position: relative;
+    border-color: #808080;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .tomsah-about {
+    padding-top: 230px;
+
+    p {
+      color: white;
+      font-size: 20px;
+    }
+  }
+}

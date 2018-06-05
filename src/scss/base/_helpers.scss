@@ -1,0 +1,51 @@
+.reset-padding {
+  padding: 0;
+}
+
+.reset-gutter-padding-mobile {
+  padding: 0;
+}
+
+.reset-gutter-margin-mobile{
+  margin: 0;
+}
+
+.reset-margin {
+  margin: 0;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.tomsah-page-section {
+  padding-top: 38px;
+
+  &--xl {
+    padding-top: 75px;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+
+  .reset-gutter-padding-mobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .reset-gutter-margin-mobile{
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .tomsah-page-section {
+    padding-top: 75px;
+
+    &--xl {
+      padding-top: 150px;
+    }
+  }
+
+}
+
+

@@ -1,0 +1,60 @@
+//solution by micheal riethmuller
+//font-size: calc(min-font-size px + (max-font-size - min-font-size) *
+//          (100vw - min-screen-size px / (max-screen-size - min-screen-size));
+
+.tomsah-intro {
+  padding-bottom: 110px;
+
+  &__title {
+    left: -25px;
+    position: relative;
+    line-height: 76%;
+    margin: 0;
+    font-family: $font-second;
+    display: inline-block;
+    font-size: calc(520px + (600 - 520) * (100vw - 320px) / (1500 - 320));
+  }
+
+
+  &__text {
+    margin-top: 10px;
+
+    p{
+      color: white;
+      font-size: calc(20px + (40 - 20) * (100vw - 320px) / (767 - 320));
+    }
+  }
+
+  hr {
+    position: absolute;
+    bottom: 0;
+    border-top: 2px solid #282828;
+    width: 90%;
+    left: 5%;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .tomsah-intro {
+    padding-bottom: 0;
+
+    &__title {
+      left: 0;
+    }
+
+    &__text {
+      margin-top: 20px;
+      padding-left: 15px;
+
+      p{
+        color: #b9b9b9;
+        font-size: calc(14px + (16 - 14) * (100vw - 320px) / (1500 - 320));
+      }
+    }
+
+    .tomsah-globe {
+      transform: scale(0.7);
+    }
+  }
+
+}

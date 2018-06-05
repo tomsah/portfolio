@@ -1,0 +1,9 @@
+.tomsah-section-title {
+  font-size: 50px;
+  font-family: $font-second;
+  color: #a3a3a3;
+
+  &--small {
+    font-size: calc(20px + (30 - 20) * (100vw - 320px) / (767 - 320));
+  }
+}
