@@ -12,8 +12,8 @@ const Contact = (props) => {
         </div>
         <div className="col-xs-9 col-xs-push-1 col-md-push-0 reset-gutter-padding-mobile tomsah-contact__text">
           <p>
-            I’m currently somewhere in the world but feel
-            free to contact me at <br />
+            I’m currently based in Sheffield UK and looking for my next challenge.<br />
+            Feel free to contact me at <br />
             <a href="#"> thomas.salah@gmail.com</a>
           </p>
         </div>

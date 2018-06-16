@@ -12,11 +12,14 @@ const Skills = (props) => {
         </div>
         <div className="col-xs-9 col-xs-push-1 col-md-push-0 reset-gutter-padding-mobile tomsah-skills__list">
           <p className="margin-reset">
-            HTML5 / HXTML <br />
-            CSS3 / SCSS / LESS / PostCSS <br />
-            JavaScript / ES6 / React / Angular / jQuery <br />
-            Drupal / WordPress <br />
-            PHP / Laravel / Silex / Twig
+            HTML / HTML5 <br />
+            CSS / CSS3 / SCSS / PostCSS <br />
+            JavaScript / ES6 / React / GreenSocks / jQuery <br />
+            Bootsrap / Foundation <br />
+            Drupal 7 &amp; 8 / Twig <br />
+            Github / NPM / Webpack <br />
+            Responsive Web Design / Mobile first <br />
+            Cross-browser / cross-device / Accessibility &amp; usability <br />
           </p>
         </div>
       </div>

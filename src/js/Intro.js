@@ -141,8 +141,8 @@ class Intro extends Component {
           <div className="col-xs-12 col-md-10 col-md-offset-1">
              <div className="tomsah-intro__text" ref="intro">
               <p>
-                I'm Thomas. French front-end developer and climber based in London.<br/>
-                Currently on a one-year trip around the world.
+                Ambitous &amp; dedicated Frontend developer and climber based in Sheffield.<br/>
+                Just back from a year travelling around the world
               </p>
              </div>
           </div>
