@@ -79,7 +79,7 @@ module.exports = (env) => {
                 },
                 {
                     test: /\.(png|jpg|gif)(\?[\s\S]+)?$/,
-                    use: 'file-loader?name=images/[name].[ext]',
+                    use: 'file-loader?name=./images/[name].[ext]',
                 },
                 {
                     test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,

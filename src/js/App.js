@@ -337,7 +337,7 @@ class App extends React.Component {
         this.previewNumberTl
           .to(`${panel} .tomsah-case__title__number__preview`, 1, {height: "115px", ease: Power2.easeInOut})
           .to(`${panel} .tomsah-case__title__number__preview span`, 0.9, {zIndex: 1, autoAlpha: 1, ease: Power2.easeInOut}, '-=1')
-          .to(`${panel} .tomsah-case__title h2`, 1 , {scale: 1.8, y: 50, delay: 0.2}, '-=1')
+          .to(`${panel} .tomsah-case__title h2`, 1 , {scale: 1.8, y: 50, marginTop: 20, delay: 0.2}, '-=1')
           .play();
       }
 

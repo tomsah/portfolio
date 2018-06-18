@@ -5,7 +5,7 @@ const About = (props) => {
   return (
     <div className="tomsah-about">
       <p>
-      Proffessional Frontend developer with 4 years of professional experience in London.
+      Professional Frontend developer with 4 years of professional experience in London.
       I have worked for a national charity and an international agency working both in-house and on client site.
       {/*<br />
       A committed, organised and reliable person, with an enthusiastic and self motivated team player attitude. Able to work under pressure, creative and determined, willingness to learn, keen to accept responsibility*/}

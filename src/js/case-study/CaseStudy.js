@@ -107,9 +107,9 @@ class CaseStudy extends Component {
 
 
   render() {
-    const {name, index, projectNumber, team, technologies, year, image, statement, text, statement2} = this.props.project;
+    const {name, index, projectNumber, team, technologies, year, image, image2, image3, image4, statement, text, statement2} = this.props.project;
     const {className, id, clickHandler, projectNav} = this.props;
-
+    console.log('IMG',image, image2);
     return (
       <div className={className} id={id} onClick={clickHandler}>
 
@@ -164,10 +164,10 @@ class CaseStudy extends Component {
 
                <div className="col-md-11">
                <div className="tomsah-case__main__hero" ref="heroImg">
-                 <img src={imgUrl} alt=""/>
+                 <img src={image} alt=""/>
                </div>
                  <div className="tomsah-case__main__description" ref="descriptionSection">
-                  <div className="col-md-5 tomsah-case__main__description__text" >
+                  <div className="col-md-8 tomsah-case__main__description__text" >
                       <p ref="descriptionText">{text}</p>
                   </div>
                   <div className="tomsah-case__main__description__statement hidden-xs hidden-sm">
@@ -180,18 +180,17 @@ class CaseStudy extends Component {
                       <h3>{statement2}</h3>
                     </div>
                     <div className="col-xs-6 col-md-4 tomsah-case__main__mobile-showcase__display">
-                      <img src={imgUrl2} alt=""/>
+                      {/*cc<img src={require(`${image2}`)} alt=""/>*/}
+                      <img src={image2} alt=""/>
                     </div>
                     <div className="col-xs-6 col-md-4 tomsah-case__main__mobile-showcase__display">
-                      <img src={imgUrl3} alt=""/>
+                      <img src={image3} alt=""/>
                     </div>
                   </div>
                 </div>
-                <div className="tomsah-case__main__homepage-showcase" ref="csHomepageSection">
-                  <div className="row">
-                    <div className="col-xs-12">
-                      <img src={imgUrl4} alt=""/>
-                    </div>
+                <div className="row tomsah-case__main__homepage-showcase" ref="csHomepageSection">
+                  <div className="col-xs-12 reset-padding">
+                    <img src={image4} alt=""/>
                   </div>
                 </div>
 
