@@ -89,7 +89,7 @@ class CaseStudy extends Component {
   csFooterAnimation = () => {
     const {viewportCs} = this.state;
 
-    let reponsiveHeight = (viewportCs === 'mobile' ? 70 : 100);
+    let reponsiveHeight = (viewportCs === 'mobile' ? 70 : 120);
     this.footerTl
         .to(this.refs.csFooter, 0.8, {bottom: reponsiveHeight, ease: Power1.easeOut})
 
@@ -100,7 +100,6 @@ class CaseStudy extends Component {
 
     this.footerScene
       .setTween(this.footerTl)
-     // .addIndicators('.tomsah-case__main__container', {name: 'text parralax'})
       .addTo(this.footerController)
   }
 

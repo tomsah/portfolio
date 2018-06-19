@@ -172,7 +172,7 @@ class App extends React.Component {
               this.fullscreenTl
                   .set(`${nextProjectAnimation} #projectOpen`, {autoAlpha: 0})
                   .to(`${nextProjectAnimation} .tomsah-case__main__hero img`, 1, {x: '-50%', scale:(1), ease: Power2.easeInOut})
-                  .to(`${nextProjectAnimation} .tomsah-case__main__hero`, 1, {marginTop: 90, ease: Power2.easeInOut}, '-=1')
+                  .to(`${nextProjectAnimation} .tomsah-case__main__hero`, 1, {marginTop: 40, ease: Power2.easeInOut}, '-=1')
                   .play();
             },
             onComplete: () => {
@@ -430,7 +430,8 @@ class App extends React.Component {
                     openProject: false
                   },() => {
                     //TweenMax.set(this.menuItems, {clearProps: "transform"});
-                    console.log('toggleMenu mobile should be close',menuExpanded);
+                    console.log('toggleMenu  should be close',menuExpanded);
+                    TweenLite.to(this.menuItems, 0.1, {boxShadow: '0 0 0 0 #ffffff'});
                    // TweenLite.to('.tomsah-project',0.1, { zIndex: -5 });
                   });
 
@@ -575,7 +576,7 @@ class App extends React.Component {
             .to( closeArr , 0.5,{x: '100%', ease: Power2.easeInOut})
             .to( menuItems[index], 1, {x: '0%' , ease: Power2.easeInOut}, '-=0.5')
             .to(`${menuItems[index]} .tomsah-case__main__hero img`, 1, {x: '-50%', scale:(1), ease: Power2.easeInOut}, '-=1')
-            .to(`${menuItems[index]} .tomsah-case__main__hero`, 1, {marginTop: 90, ease: Power2.easeInOut}, '-=1')
+            .to(`${menuItems[index]} .tomsah-case__main__hero`, 1, {marginTop: 40, ease: Power2.easeInOut}, '-=1')
             .play();
         // the new target index should be the previous element if the
         // index is bigger than 0
