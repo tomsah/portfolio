@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-//import Globe from './Globe';
+// import Globe from './Globe';
 //import Globe2 from './Globe2';
 import GlobeCanvas from './GlobeCanvas';
 import PropTypes from 'prop-types';

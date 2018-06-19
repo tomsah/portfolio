@@ -5,8 +5,9 @@ import ScrollMagic from 'scrollmagic';
 import 'animation.gsap';
 import "debug.addIndicators";
 import TweenMax  from 'gsap';
-import imageGlobe from '../../images/globe.png';
-
+//import imageGlobe from '../../images/globe.png';
+import GlobeCanvas from '../GlobeCanvas';
+//import Globe from '../Globe';
 
 class Travel extends Component {
 
@@ -84,8 +85,10 @@ class Travel extends Component {
       <div className="tomsah-travel tomsah-page-section--xl" ref="travel" >
 
        <div className="tomsah-globe hidden-md hidden-lg" ref="globe">
-          <img src={imageGlobe} alt="" ref="globeImg"/>
+            {/*<GlobeCanvas />*/}
       </div>
+
+
 
         <p>
           I"ve been on an amazing one-year trip around the world.
@@ -102,7 +105,7 @@ class Travel extends Component {
         </ul>
         <a href="#" className="tomsah-button tomsah-button--white"  onClick={this.props.toggleMenu} ref="travelBtt">
           <span className="mask" ref="buttonMask"></span>
-          <span>Check out my works</span>
+          <span>Check out my work</span>
          </a>
       </div>
     )

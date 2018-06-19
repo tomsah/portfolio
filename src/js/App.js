@@ -83,9 +83,9 @@ class App extends React.Component {
 
     closeMenuOutside = e => {
       const { menuExpanded, targetPanel, activePanel, viewport} = this.state;
+      console.log(e.target, this.body);
 
       if(e.target.id === "project-container") {
-        console.log('closeMenuOutside')
 
         // if a panel is on preview mode reverse animation
         if(targetPanel !== null ) {
@@ -94,6 +94,7 @@ class App extends React.Component {
           this.CaseNumberAnimationUp(activePanel);
 
           if(viewport === 'desktop') {
+            console.log('closeMenuOutside', e.target.id);
             return TweenLite.to(
               this.menuItems.slice(0, targetPanel + 1), 1, {
                 x: '+=50%', ease: Power2.easeInOut,
@@ -109,6 +110,7 @@ class App extends React.Component {
                   this.menuTl.reversed( menuExpanded );
                   this.body.classList.remove('no-scroll');
                 }// on complete
+                // this.body.classList.remove('no-scroll');
             });// tweenlite instance
           }
         }
@@ -116,6 +118,7 @@ class App extends React.Component {
           menuExpanded: !menuExpanded,
         }, () => {
           this.menuTl.reversed(menuExpanded);
+          this.body.classList.remove('no-scroll');
         })
       }
     }
@@ -320,7 +323,7 @@ class App extends React.Component {
             console.log('menutl onReverseComplete', this.menuItems)
           }
         })
-        .from('.tomsah-project', 1, {backgroundColor: 'rgba(0, 0, 0, 0.01)', ease:Power2.easeInOut}, 0)
+        .from('.project-bkg-fadeout', 1, {backgroundColor: 'rgba(0, 0, 0, 0.01)', ease:Power2.easeInOut}, 0)
         .reverse();
     };
 
@@ -602,7 +605,7 @@ class App extends React.Component {
 
       const {menuActive, menuOnloadPreview, allProjects, slideMenu, menuExpanded, viewport, openProject} = this.state;
         return (
-          <main className={`${menuExpanded ? 'is-menu-active' : ''}
+          <main id="main-container" className={`${menuExpanded ? 'is-menu-active' : ''}
                             ${menuOnloadPreview ? 'is-menu-preview' : ''}`} ref="main">
             <div className="container-fluid">
               <div className="tomsah-burger" onClick={this.toggleMenu}>
@@ -634,6 +637,7 @@ class App extends React.Component {
                   togglePreviewCase={this.togglePreviewCase}
                   ref={(node) => { this.child = node; }}
                 />
+                <div className="project-bkg-fadeout" id="project-container-bkg"></div>
                 {/* end of project section*/}
               </div>
             </div>

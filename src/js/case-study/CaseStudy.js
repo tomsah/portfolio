@@ -109,7 +109,6 @@ class CaseStudy extends Component {
   render() {
     const {name, index, projectNumber, team, technologies, year, image, image2, image3, image4, statement, text, statement2} = this.props.project;
     const {className, id, clickHandler, projectNav} = this.props;
-    console.log('IMG',image, image2);
     return (
       <div className={className} id={id} onClick={clickHandler}>
 
