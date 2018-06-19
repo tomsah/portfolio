@@ -19,7 +19,6 @@ class Intro extends Component {
     }
 
     this.introAnimation.bind(this);
-   // this.unwrap.bind(this);
 
    //Init scrollMagic
    this.controller = new ScrollMagic.Controller();

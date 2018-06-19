@@ -4,6 +4,7 @@ import Intro from './Intro';
 import Main from './Main';
 import Projects from './Projects';
 import {TweenMax, TweenLite} from 'gsap';
+import ScrollMagic from 'scrollmagic';
 import TransitionGroup from 'react-addons-transition-group';
 import debounce from 'lodash/debounce'
 
@@ -68,6 +69,17 @@ class App extends React.Component {
 
       if (window) window.addEventListener('resize', debounce(this.handleResize, 66))
 
+
+      // remove the 30px gap when user srcolled 30px
+      var projectContainerController = new ScrollMagic.Controller();
+      var scene = new ScrollMagic.Scene({
+        triggerElement: '#main-container',
+        triggerHook: 0,
+        offset: 30
+      })
+      .setTween('.tomsah-project', 0.1, {top: 0})
+      .addTo(projectContainerController);
+
     }
 
     componentWillUnmount() {
@@ -89,7 +101,6 @@ class App extends React.Component {
 
         // if a panel is on preview mode reverse animation
         if(targetPanel !== null ) {
-          console.log('closeMenuOutside panels was open')
 
           this.CaseNumberAnimationUp(activePanel);
 
@@ -99,18 +110,10 @@ class App extends React.Component {
               this.menuItems.slice(0, targetPanel + 1), 1, {
                 x: '+=50%', ease: Power2.easeInOut,
                 onComplete: () =>{
-                  // this.setState({
-                  //   menuExpanded: !menuExpanded,
-                  //   targetPanel: null,
-                  //   activePanel: null,
-                  //   openProject: false
-                  // },() => {
-                  //   console.log('closeMenuOutside set state when reverse is finish')
-                  // });
+
                   this.menuTl.reversed( menuExpanded );
                   this.body.classList.remove('no-scroll');
                 }// on complete
-                // this.body.classList.remove('no-scroll');
             });// tweenlite instance
           }
         }
@@ -134,7 +137,6 @@ class App extends React.Component {
        /*CASE NUMBER ANIMATION */
        this.CaseNumberAnimationUp(activePanel);
        /*CASE NUMBER ANIMATION */
-       // let activePanel = (targetPanel === this.menuItems.length - 1) ? this.menuItems[0] : this.menuItems[targetPanel + 1];
 
        let nextProject = (targetPanel === this.menuItems.length - 1) ?
                             document.querySelector(`${this.menuItems[0]}`) :
@@ -197,7 +199,6 @@ class App extends React.Component {
         this.setState({
           viewport: 'mobile'
         }, () => {
-          console.log('componentWillMount set state to mobile');
           if(menuOnloadPreview) {
             this.introMenu();
           }
@@ -206,7 +207,6 @@ class App extends React.Component {
         this.setState({
           viewport: 'desktop'
         }, () => {
-          console.log('componentWillMount set state to desktop');
           if(menuOnloadPreview) {
             this.introMenu();
           }
@@ -217,7 +217,6 @@ class App extends React.Component {
 
     handleResize = () => {
       const {viewport, menuExpanded, menuOnloadPreview, targetPanel} = this.state;
-      console.log('handleResize is called');
       //on Project Full view do not trigger handleResize
       if(targetPanel !== null ) {
         return;
@@ -227,7 +226,6 @@ class App extends React.Component {
           this.setState({
             viewport: 'mobile'
           }, () => {
-            console.log('handleResize set state to mobile');
             TweenMax.set(this.menuItems, {clearProps: "transform"});
             this.createMenuTween();
           })
@@ -235,7 +233,6 @@ class App extends React.Component {
           this.setState({
             viewport: 'desktop'
           }, () => {
-            console.log('handleResize set state to desktop');
             TweenMax.set(this.menuItems, {clearProps: "transform"});
             this.createMenuTween();
           }
@@ -299,14 +296,6 @@ class App extends React.Component {
           }
         },
           ease: Power2.easeInOut,
-          onStart: () => {
-            //TweenLite.to(this.menuItems,1, {boxShadow: '0 -2 10 1 #403838'});
-           // TweenLite.from('.tomsah-project', 1, {backgroundColor: 'rgba(0, 0, 0, 0.1)', ease:Power2.easeInOut});
-
-          },
-          onComplete: () => {
-            console.log('menutl complete', this.menuItems);
-          },
           onReverseComplete: () => {
             TweenLite.to(this.menuItems, 0.1, {boxShadow: '0 0 0 0 #ffffff'});
             TweenLite.to('.tomsah-project',0.1, { zIndex: -5,});
@@ -317,13 +306,11 @@ class App extends React.Component {
               openProject: false
             },() => {
             TweenLite.set(this.menuItems, {boxShadow: '0 0 0 0 #ffff'});
-
-              console.log('toggleMenu onComplete')
             });
-            console.log('menutl onReverseComplete', this.menuItems)
           }
         })
-        .from('.project-bkg-fadeout', 1, {backgroundColor: 'rgba(0, 0, 0, 0.01)', ease:Power2.easeInOut}, 0)
+        .from('.project-bkg-fadeout', 0.1, {zIndex: -100}, 0)
+        .from('.project-bkg-fadeout', 1, {backgroundColor: 'rgba(0, 0, 0, 0.01)', delay: 0.1, ease:Power2.easeInOut}, 0)
         .reverse();
     };
 
@@ -605,6 +592,8 @@ class App extends React.Component {
 
       const {menuActive, menuOnloadPreview, allProjects, slideMenu, menuExpanded, viewport, openProject} = this.state;
         return (
+          <div>
+          <div className="top-border"></div>
           <main id="main-container" className={`${menuExpanded ? 'is-menu-active' : ''}
                             ${menuOnloadPreview ? 'is-menu-preview' : ''}`} ref="main">
             <div className="container-fluid">
@@ -649,6 +638,7 @@ class App extends React.Component {
             </div>
 
           </main>
+          </div>
         )
     }
 }
