@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import ScrollMagic from 'scrollmagic';
 import 'animation.gsap';
 import 'debug.addIndicators';
-import imgUrl from '../../images/ses-site.png';
-import imgUrl2 from '../../images/caseStudy/mobile1.jpg';
-import imgUrl3 from '../../images/caseStudy/mobile2.jpg';
-import imgUrl4 from '../../images/caseStudy/homepage.png';
 
 class CaseStudy extends Component {
 
