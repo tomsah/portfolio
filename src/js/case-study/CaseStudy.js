@@ -67,9 +67,12 @@ class CaseStudy extends Component {
   }
 
 
-
-
   cstextAnimation = () => {
+    if(this.state.viewportCs === "mobile") {
+      console.log('mobile');
+      return;
+    }
+
       this.parallaxTL
         //.fromTo(this.refs.descriptionText, 0.8, {y: '25%'}, {y: '33%',  ease: Power1.easeOut}, '+=0.3');
         .from(this.refs.descriptionText, 1 , {ease: Circ.easeOut, y: '125%'});

@@ -635,7 +635,9 @@ class App extends React.Component {
             <div className="tomsah-border-right hidden-xs hidden-sm"></div>
 
             <div className="tomsah-background-text text-uppercase">
-              HI, I am a front end developer
+              <p>
+                HI, I am a front end developer
+              </p>
             </div>
 
           </main>

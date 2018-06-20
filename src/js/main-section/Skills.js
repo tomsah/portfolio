@@ -15,7 +15,7 @@ const Skills = (props) => {
             HTML / HTML5 <br />
             CSS / CSS3 / SCSS / PostCSS <br />
             JavaScript / ES6 / React / GreenSocks / jQuery <br />
-            Bootsrap / Foundation <br />
+            Bootstrap / Foundation <br />
             Drupal 7 &amp; 8 / Twig <br />
             Github / NPM / Webpack <br />
             Responsive Web Design / Mobile first <br />

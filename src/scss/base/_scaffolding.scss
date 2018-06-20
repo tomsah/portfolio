@@ -51,26 +51,33 @@ main {
 }
 
 .tomsah-background-text {
-  font-size: calc(520px + (600 - 520) * (100vw - 320px) / (1500 - 320));
-  font-family: "osp-din";
-  color: #282828;
-  line-height: 0.81;
-  word-break: break-word;
   position: absolute;
   top: -14px;
   left: -25px;
   z-index: -1;
   opacity: 0.5;
-  width: 600%;
+  width: 100%;
   overflow-x: hidden;
   max-height: 100%;
   height: 100%;
   min-height: 100%;
+
+  p {
+    display: block;
+    width: 500%;
+    font-size: calc(520px + (600 - 520) * (100vw - 320px) / (1500 - 320));
+    font-family: "osp-din";
+    color: #282828;
+    line-height: 0.81;
+    word-break: break-word;
+  }
 }
 
 @media (min-width: $screen-sm-min) {
  .tomsah-background-text {
    left: 16px;
-   width: 180%;
+   p{
+    width: 180%;
+   }
  }
 }
