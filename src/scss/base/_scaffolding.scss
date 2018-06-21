@@ -17,7 +17,6 @@ body {
 main {
   max-width: 1440px;
   margin: 30px;
-  // padding-bottom: 110px;
   position: relative;
 }
 
@@ -74,6 +73,11 @@ main {
 }
 
 @media (min-width: $screen-sm-min) {
+
+  .tomsah-border-right {
+    width: 72px;
+  }
+
  .tomsah-background-text {
    left: 16px;
    p{

@@ -132,6 +132,7 @@ class Intro extends Component {
   }
 
   render () {
+    const {viewportIntro} = this.state;
     return (
       <div className="col-xs-12 col-md-4 tomsah-intro reset-gutter-padding-mobile">
         <h1 className="tomsah-intro__title text-uppercase" ref="title">hi</h1>
@@ -150,7 +151,9 @@ class Intro extends Component {
         <div className="tomsah-globe hidden-xs hidden-sm" ref="globe">
             {/*<img src={imageGlobe} alt="" ref="globeImg"/>*/}
             {/*<Globe />*/}
-            <GlobeCanvas />
+            {
+              (viewportIntro === 'desktop') ? <GlobeCanvas /> : ''
+            }
             {/* <Globe2 />*/}
         </div>
 

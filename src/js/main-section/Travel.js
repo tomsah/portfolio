@@ -5,7 +5,6 @@ import ScrollMagic from 'scrollmagic';
 import 'animation.gsap';
 import "debug.addIndicators";
 import TweenMax  from 'gsap';
-//import imageGlobe from '../../images/globe.png';
 import GlobeCanvas from '../GlobeCanvas';
 //import Globe from '../Globe';
 
@@ -81,11 +80,15 @@ class Travel extends Component {
   }
 
   render() {
+    const {viewportTravel} = this.state;
+
     return (
       <div className="tomsah-travel tomsah-page-section--xl" ref="travel" >
 
        <div className="tomsah-globe hidden-md hidden-lg" ref="globe">
-            {/*<GlobeCanvas />*/}
+            {
+              (viewportTravel === 'mobile') ? <GlobeCanvas /> : ''
+            }
       </div>
 
 
