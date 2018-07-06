@@ -34,14 +34,14 @@ class Intro extends Component {
 
    this.pinIntroScene2 = new ScrollMagic.Scene({
      triggerElement: this.refs.title,
-     triggerHook: 0.3,
-     duration: '120%',
-     offset: '20%'
+     triggerHook: 0,
+     duration: '170%',
    });
 
    this.pinIntroSceneFinal = new ScrollMagic.Scene({
     triggerElement: this.refs.globe,
-    // triggerHook: 1
+    triggerHook: 1,
+    offset: '100%'
    })
 
   }
@@ -123,6 +123,7 @@ class Intro extends Component {
      this.pinIntroScene2
        .setPin(this.refs.globe, {pushFollowers: false})
        .setTween(this.tlIntro)
+       .addIndicators({name: "globe indiocators"})
        .addTo(this.controller);
 
     // this.pinIntroSceneFinal

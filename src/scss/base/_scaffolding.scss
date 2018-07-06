@@ -85,3 +85,17 @@ main {
    }
  }
 }
+
+@media (min-width: $screen-xl-min) {
+  main {
+    max-width: 100%;
+  }
+
+  .tomsah-background-text {
+    overflow-x: visible;
+    p {
+      width: 150%;
+      line-height: 1;
+    }
+  }
+}

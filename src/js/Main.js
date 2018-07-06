@@ -17,7 +17,7 @@ class Main extends Component {
     //const {toggleMenu} = this.props;
 
     return (
-      <div className="col-xs-12 col-md-8 reset-gutter-padding-mobile">
+      <div className="col-xs-12 col-md-8 col-lg-7 reset-gutter-padding-mobile">
 
         {/* start about section */}
         <About />

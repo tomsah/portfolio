@@ -58,3 +58,12 @@
   }
 
 }
+
+@media (min-width: $screen-xl-min) {
+  .tomsah-intro {
+    &__title {
+      line-height: 0.96;
+    }
+  }
+}
+
