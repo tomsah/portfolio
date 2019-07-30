@@ -4,9 +4,6 @@
 /doc
 /dist
 /dist-bck
-/src/images
-/src/js/data
-
 # Error log
 npm-debug.log
 
