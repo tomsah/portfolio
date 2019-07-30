@@ -9,6 +9,8 @@
 
 # Error log
 npm-debug.log
+#webstorm project folder
+.idea
 
 # Silly Macs
 .DS_Store

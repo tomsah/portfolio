@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server -d --env.development",
     "clean": "rimraf dist/*",
-    "prod": "npm run clean && webpack --env.production",
+    "prod": "yarn run clean && webpack --env.production",
+    "test": "jest",
     "deploy": "yarn run prod && aws s3 cp dist/ s3://tomsah.com --recursive"
   },
   "author": "Thomas salah",
