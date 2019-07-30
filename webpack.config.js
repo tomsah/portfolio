@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const bootstrapEntryPoints = require('./webpack.bootstrap.config.js');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const path = require("path");
 
@@ -71,7 +72,14 @@ module.exports = (env) => {
                 {
                     test: /\.js$/,
                     exclude: /node_modules/,
-                    use: 'babel-loader'
+                    use: {
+                        loader: 'babel-loader',
+                        query: {
+                            presets: ['env'],
+                            plugins: ["transform-class-properties"]
+                        }
+                    }
+
                 },
                 {
                     test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -102,7 +110,8 @@ module.exports = (env) => {
             plugins.push(
                 new HtmlWebpackPlugin({
                     template: './src/index.html'
-                })
+                }),
+                new UglifyJsPlugin(),
             );
             if (isDevelopment) {
                 plugins.push(
