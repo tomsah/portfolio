@@ -16,68 +16,114 @@ class GlobeCanvas extends Component {
     this.d3GlobeCanvasAnimation();
   }
 
-  // componentDidUpdate () {
-  //   this.d3GlobeCanvasAnimation();
-  // }
-
   d3GlobeCanvasAnimation = () => {
-    let data = [
-        {"latitude": 22, "longitude": 88, 'town': 'london'},
-        {"latitude": 12.61315, "longitude": 38.37723, 'town': 'roubaix'},
-        {"latitude": -30, "longitude": -58, 'town': 'sf'},
-        {"latitude": -14.270972, "longitude": -170.132217, 'town': 'lima'},
-        {"latitude": 28.033886, "longitude": 1.659626, 'town': 'paris'},
-        {"latitude": 40.463667, "longitude": -3.74922, 'town': 'madrid'},
-        {"latitude": 35.907757, "longitude": 127.766922,'town': 'rome'},
-        {"latitude": 23.634501, "longitude": -102.552784, 'town': 'newyork'}
+    let locations = [
+        {"latitude": 51.5074, "longitude": 0.1278, 'town': 'London'},
+        {"latitude": 40.463667, "longitude": -3.749220, 'town': 'Spain'},
+        {"latitude": -9.189967, "longitude": -75.015152, 'town': 'Peru'},
+        {"latitude": -1.831239, "longitude": -78.183406, 'town': 'Ecuador'},
+        {"latitude": 37.090240, "longitude": -95.712891, 'town': 'USA'},
+        {"latitude": 23.634501, "longitude": -102.552784, 'town': 'Mexico'},
+        {"latitude": 20.593684, "longitude": 100.992541, 'town': 'India'},
+        {"latitude": 15.870032, "longitude": 100.992541, 'town': 'Thailand'},
+        {"latitude": -1.826847, "longitude": -80.752973, 'town': 'Montañita'},
+        {"latitude": 0.505031, "longitude": -80.021354,'town': 'Mompiche'}
+
     ];
 
-    var width = 500,
-        height = 425;
-    var radius = height / 2 - 5,
-        scale = radius,
-        velocity = .02;
-    var projection = d3.geoOrthographic()
-        .translate([width / 2, height / 2])
-        .scale(scale)
-        .clipAngle(90);
-    var canvas = d3.select(".canvas-container").append("canvas")
-        .attr("width", width)
-        .attr("height", height);
-    var context = canvas.node().getContext("2d");
-    var path = d3.geoPath()
-        .projection(projection)
-        .context(context);
+  const width = 500,
+      height = 425,
+      speed = 0.008,
+      start = Date.now();
 
-    var graticule = d3.geoGraticule().step([7, 3]);
-    var grid = graticule();
+  const sphere = {type: "Sphere"};
 
-    d3.json("https://gist.githubusercontent.com/mbostock/4090846/raw/d534aba169207548a8a3d670c9c2cc719ff05c47/world-110m.json", function(error, world) {
-      if (error) throw error;
-      var land = topojson.feature(world, world.objects.land);
+  const projection = d3.geoOrthographic()
+      .scale(height / 2.1)
+      .translate([width / 2, height / 2])
+      .clipAngle(90)
+      // .precision(.5);
 
-      d3.timer(function(elapsed) {
+  const graticule = d3.geoGraticule().step([7, 3]);
 
-        context.clearRect(0, 0, width, height);
-        projection.rotate([velocity * elapsed, 0]);
-        context.beginPath();
-        // path(land);
-        context.fill();
-        context.beginPath();
+  const canvas = d3.select(".canvas-container").append("canvas")
+      .attr("width", width)
+      .attr("height", height);
 
+  const context = canvas.node().getContext("2d");
 
-        context.beginPath();
-        path(grid);
-        context.lineWidth = .5;
-        context.strokeStyle = "rgba(119,119,119, 1)";
-        context.stroke();
+  const path = d3.geoPath()
+      .projection(projection)
+      .context(context);
 
-      });
+  d3.queue().await(load);
+
+  function load(error, cities) {
+    if (error) { console.log(error); }
+
+    const grid = graticule();
+    const outerArray = [];
+
+   locations.forEach(function(el) {
+      const innerArray = [+el.longitude, +el.latitude, el.town];
+      outerArray.push(innerArray);
     });
 
+    const points = {
+      type: "MultiPoint",
+      coordinates: outerArray
+    };
+
+    var cities =   outerArray.forEach(function(d) {
+         context.fillText(
+          d[2],
+          projection(d)[0] ,
+          projection(d)[1]
+          );
+       });
 
 
-    d3.select(self.frameElement).style("height", height + "px");
+    d3.timer(function() {
+
+      projection.rotate([speed * (Date.now() - start), -35, 0]);
+      context.clearRect(0, 0, width, height);
+
+      context.beginPath();
+      path(grid);
+      context.lineWidth = .5;
+      context.strokeStyle = "rgba(119,119,119, 1)";
+      context.stroke();
+
+
+      context.beginPath();
+      outerArray.forEach(function(d) {
+        const coordinate = [d[0], d[1]];
+        const center = [width / 2, height / 2];
+        const gdistance =d3.geoDistance(coordinate,projection.invert(center));
+
+        if(gdistance < 1.57079632679490) {
+          context.fillText(
+          d[2],
+          projection(d)[0],
+          projection(d)[1]
+          );
+        }
+       });
+
+       context.textAlign = "center";
+       context.textBaseline = "bottom";
+
+      //cities dot
+      context.beginPath();
+      path(points);
+      context.fillStyle = "blue";
+      context.fill();
+
+      context.restore();
+    })
+  }
+
+  d3.select(self.frameElement).style("height", (2*height) + "px");
   }
 
 
