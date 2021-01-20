@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "d3v4": "^4.2.2",
-    "gsap": "^1.20.3",
+    "gsap": "^3.6.0",
     "install-peerdeps": "^1.10.2",
     "lodash": "^4.17.5",
     "prop-types": "15.5.10",
